@@ -8,6 +8,9 @@ actions:
 - utter_ask_location
 - utter_ask_cuisine
 - action_restaurant
+- utter_email_confirmation
+- utter_ask_email_id
+- utter_email_send_confirmation
 config:
   store_entities_as_slots: true
 entities:
@@ -25,6 +28,8 @@ intents:
 - thankyou:
     use_entities: true
 - restaurant_search:
+    use_entities: true
+- send_more_details:
     use_entities: true
 slots:
   cuisine:
@@ -45,12 +50,27 @@ templates:
     - payload: North Indian
       title: North Indian
     text: what kind of cuisine would you like?
+  utter_ask_email_id:
+  - text: Can I have your email, Please?
   utter_ask_howcanhelp:
   - text: how can I help you?
   utter_ask_location:
   - text: In what location?
+  utter_ask_price_range:
+  - buttons:
+    - payload: Lesser than Rs. 300
+      title: Lesser than Rs. 300
+    - payload: Rs. 300 to 700
+      title: Rs. 300 to 700
+    - payload: More than 700
+      title: More than 700
+    text: What price range are you looking at?
   utter_default:
   - text: default message
+  utter_email_confirmation:
+  - text: Do you want the details on your email?
+  utter_email_send_confirmation:
+  - text: Details of the restaurant has been sent over the email.
   utter_goodbye:
   - text: goodbye :(
   - text: Bye-bye

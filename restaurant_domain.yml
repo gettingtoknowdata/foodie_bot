@@ -3,10 +3,18 @@ slots:
     type: text
   cuisine:
     type: text
+  price:
+    type: text #determine later
+  email:
+    type: text
+  restaurant:
+    type: text
 
 entities:
 - location
 - cuisine
+- price
+- email
 
 intents:
  - greet
@@ -15,6 +23,8 @@ intents:
  - goodbye
  - thankyou
  - restaurant_search
+ - price_check
+ - send_email
 
 
 templates:
@@ -38,6 +48,21 @@ templates:
         payload: "South Indian"
       - title: "North Indian"
         payload: "North Indian"
+  utter_ask_price_range:
+    - text: "What price range are you looking at?"
+      buttons:
+      - title: "Lesser than Rs. 300"
+        payload: "Lesser than Rs. 300"
+      - title: "Rs. 300 to 700"
+        payload: "Rs. 300 to 700"
+      - title: "More than 700"
+        payload: "More than 700"
+  utter_email_confirmation:
+    - "Do you want the details on your email?"
+  utter_ask_email_id:
+    - "Can I have your email, Please?"
+  utter_email_send_confirmation:
+    - "Details of the restaurant has been sent over the email."
   utter_ask_howcanhelp:
     - "how can I help you?"
   utter_ask_location:
@@ -51,5 +76,9 @@ actions:
 - utter_ask_location
 - utter_ask_cuisine
 - action_restaurant
+- utter_email_confirmation
+- utter_ask_email_id
+- utter_email_send_confirmation
+
 #- actions.ActionSearchRestaurants
 
